@@ -17,4 +17,10 @@
     <li>
         <a href="{{ route('price') }}">{{ __('Цена') }}</a>
     </li>
+    <li>
+        <a href="{{ route('post.index') }}">{{ __('Индекс') }}</a>
+    </li>
+    <li>
+        <a href="{{ route('post.create') }}">{{ __('Пост') }}</a>
+    </li>
 </ul>
