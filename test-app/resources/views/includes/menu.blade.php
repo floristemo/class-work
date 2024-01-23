@@ -1,22 +1,20 @@
-<div class="container">
-<ul class="nav-list">
+<ul>
     <li>
-        <a class="nav-item" href="{{ route('home') }}">{{ __('Главная') }}</a>
+        <a href="{{ route('home') }}">{{ __('Главная') }}</a>
     </li>
     <li>
-        <a class="nav-item" href="{{ route('about') }}">{{ __('О нас') }}</a>
+        <a href="{{ route('about') }}">{{ __('О нас') }}</a>
     </li>
     <li>
-        <a class="nav-item" href="{{ route('contacts') }}">{{ __('Контакты') }}</a>
+        <a href="{{ route('contacts') }}">{{ __('Контакты') }}</a>
     </li>
     <li>
-        <a class="nav-item" href="{{ route('blog') }}">{{ __('Блог') }}</a>
+        <a href="{{ route('blog') }}">{{ __('Блог') }}</a>
     </li>
     <li>
-        <a class="nav-item" href="{{ route('portfolio') }}">{{ __('Портфолио') }}</a>
+        <a href="{{ route('portfolio') }}">{{ __('Портфолио') }}</a>
     </li>
     <li>
-        <a class="nav-item" href="{{ route('price') }}">{{ __('Наши цены') }}</a>
+        <a href="{{ route('price') }}">{{ __('Цена') }}</a>
     </li>
 </ul>
-</div>
