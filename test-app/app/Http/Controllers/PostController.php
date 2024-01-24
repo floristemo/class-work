@@ -59,17 +59,34 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        return view(view:'post.edit');
+        return view('post.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'text' => 'required',
+        ]);
+        $input = $request->all();
+
+        if($image = $request->file('image')) {
+            $destionPath = 'images/';
+            $profileImage = date('YmHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destionPath,$profileImage);
+            $input['image'] = "$profileImage";
+        } else {
+            unset($input['image']);
+        }
+
+        $post->update($input);
+
+        return redirect()->route('post.index')->with('success', 'Ваш пост был изменен');
     }
 
     /**

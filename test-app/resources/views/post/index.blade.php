@@ -9,7 +9,7 @@
             </div>
         @endif
             <row>
-                <a href="{{route('post.create')}}" class="button button-primary">{{__('Новый Пост')}}</a>
+                <a href="{{ route('post.create') }}" class="button button-primary">{{__('Новый Пост')}}</a>
             </row>
             <row>
                 <table class="table">
@@ -30,6 +30,8 @@
                             <td>{{ $post->text }}</td>
                             <td><img width="150" height="150" src="/images/{{$post->image}}" alt=""></td>
                             <td>
+                                <a href="{{ route('post.edit', $post->id) }}" class="btn btn-success">Редактировать</a>
+                                <a href="" class="btn btn-warning">Подробнее</a>
                                 <form method="POST" action="{{ route('post.delete', $post->id) }}">
                                     @csrf
                                     @method('DELETE')
