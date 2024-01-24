@@ -18,9 +18,15 @@
         <a href="{{ route('price') }}">{{ __('Цена') }}</a>
     </li>
     <li>
-        <a href="{{ route('post.index') }}">{{ __('Индекс') }}</a>
+        <a href="{{ route('post.index') }}">{{ __('Таблица') }}</a>
     </li>
     <li>
         <a href="{{ route('post.create') }}">{{ __('Пост') }}</a>
+    </li>
+    <li>
+        <a href="{{ route('article.index') }}">{{ __('article Таблица') }}</a>
+    </li>
+    <li>
+        <a href="{{ route('article.create') }}">{{ __('article Пост') }}</a>
     </li>
 </ul>
