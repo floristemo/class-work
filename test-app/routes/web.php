@@ -36,7 +36,10 @@ Route::prefix('/post')->group(function () {
 Route::prefix('/category')->group(function () {
     Route::get('/index', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('category.index');
     Route::get('/create', [\App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('category.create');
+    Route::get('/edit/{category}', [\App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('category.edit');
     Route::post('/store', [\App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('category.store');
+    Route::put('/update/{category}', [\App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/delete/{category}', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('category.delete');
 });
 Route::prefix('/tovar')->group(function () {
     Route::get('/index', [\App\Http\Controllers\Admin\ProductController::class, 'index'])->name('tovar.index');

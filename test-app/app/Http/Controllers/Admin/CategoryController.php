@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -55,24 +56,37 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view('category.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'text' => 'required',
+            'is_active' => 'required'
+        ]);
+
+        $input = $request->all();
+
+
+
+        $category->update($input);
+
+        return redirect()->route('category.index')->with('success', 'Ваша категория успешно обновлена!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('category.index')->with('success', 'Ваша категория была удалена');
     }
 }

@@ -17,7 +17,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Название поста</th>
                     <th scope="col">Описание поста</th>
-                    <th scope="col">Изображение</th>
+                    <th scope="col">Активность</th>
                     <th scope="col">Действие</th>
                 </tr>
                 </thead>
@@ -43,6 +43,14 @@
                                     {{ __('Активна') }}
                                 </div>
                             @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('category.edit', $category->id) }}" class="btn btn-success">Редактировать</a>
+                            <form method="POST" action="{{ route('category.delete', $category->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Удалить</button>
+                            </form>
                         </td>
                     </tr>
                 @empty
